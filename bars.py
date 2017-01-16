@@ -5,16 +5,16 @@ import math
 
 def load_data(filepath):
     fd = open(filepath)
-    data = json.load(fd, encoding="utf-8")
+    json_data = json.load(fd, encoding="utf-8")
     fd.close()
-    return data
+    return json_data
 
 
 def get_biggest_bar(json_data):
     print(max((bar['SeatsCount'] for bar in json_data)))
 
 
-def get_smallest_bar(data):
+def get_smallest_bar(json_data):
     print(min((bar['SeatsCount'] for bar in json_data)))
 
 
