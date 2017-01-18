@@ -15,12 +15,12 @@ def load_data(filepath):
 
 def get_biggest_bar(json_data):
     bars = get_seats_sorted(json_data, reverse=True)
-    print("{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
+    print(u"{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
 
 
 def get_smallest_bar(json_data):
     bars = get_seats_sorted(json_data)
-    print("{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
+    print(u"{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
 
 
 def distance(longitude, latitude, bar):
@@ -36,7 +36,7 @@ def get_closest_bar(json_data, longitude, latitude):
         if dist < min_distance:
             min_distance = dist
             closest_bar = bar
-    print("Ближайший бар: {}".format(closest_bar["Name"]))
+    print(u"Ближайший бар: {}".format(closest_bar["Name"]))
             
 if __name__ == '__main__':
     if len(sys.argv) < 2:
