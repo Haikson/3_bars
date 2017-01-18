@@ -1,6 +1,7 @@
 # Ближайшие бары
 
-[FIXME. Здесь будет описание проекта]
+Скрипт принимает на вход путь к файлу данных и выводит самый большой и самый маленький бары.
+
 
 # Как запустить
 
@@ -10,8 +11,12 @@
 
 ```#!bash
 
-$ python bars.py # possibly requires call of python3 executive instead of just python
-# FIXME вывести пример ответа скрипта
+$ python bars.py </путь/к/файлу/данных.json># possibly requires call of python3 executive instead of just python                                                                                                                                                   
+# 450
+# 0
+# 55
+# 66
+# Таверна
 
 ```
 
