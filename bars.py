@@ -14,13 +14,13 @@ def load_data(filepath):
 
 
 def get_biggest_bar(json_data):
-    bars = get_seats_sorted(json_data, reverse=True)
-    print(u"{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
+    bar = max(json_data, key=lambda bar: bar['SeatsCount'])
+    print(u"{}: количество мест {}".format(bar["Name"], bar["SeatsCount"]))
 
 
 def get_smallest_bar(json_data):
-    bars = get_seats_sorted(json_data)
-    print(u"{}: количество мест {}".format(bars[0]["Name"], bars[0]["SeatsCount"]))
+    bar = min(json_data, key=lambda bar: bar['SeatsCount'])
+    print(u"{}: количество мест {}".format(bar["Name"], bar["SeatsCount"]))
 
 
 def distance(longitude, latitude, bar):
@@ -39,9 +39,7 @@ def get_closest_bar(json_data, longitude, latitude):
     print(u"Ближайший бар: {}".format(closest_bar["Name"]))
             
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print(u"Не указан путь к файлу данных.")
-    else:
+    try:
         json_data = load_data(filepath=sys.argv[1])
         get_biggest_bar(json_data)
         get_smallest_bar(json_data)
@@ -49,3 +47,6 @@ if __name__ == '__main__':
         longitude = input(u"Введите долготу: ")
         latitude = input(u"Введите широту: ")
         get_closest_bar(json_data, float(longitude), float(latitude))
+    except IndexError:
+        print("Usage:\n"
+                "    python bars.py <JSON-File-Name>\n")
